@@ -33,17 +33,17 @@ namespace draciDoupe
                 story.Add("You wake up in a creepy looking dungeon and have no idea where exactly are you or how did you get here. You stand up and confusably look around. Your head hurts really bad so you assume you must have hit your head pretty hardy that you forgot how did you get here and why are you here. You see a note on the ground. Do you want to read it?");
                 story.Add("You decided to find your way out. You are still trying to remember anything when you bump into someone or something more likely. It was a monster and it instantly attacks you.");
             }
-            if (Game.player.Level == 2)
+            else if (Game.player.Level == 2)
             {
                 story.Add("You killed the monsters and continue on your way out but you are just going in circles. The dungeon is a one big maze and you want to give up when you start to remember that you went here on some kind of job for a rich Count but you can't remember his name. Suddenly you see another note. Do you want to read it?");
                 story.Add("The revive of your memory gave you hope that you might remember a way out. You think that you are finally getting out but you find yourself at the dead end and there more monsters cornering you.");
             }
-            if (Game.player.Level == 3)
+            else if (Game.player.Level == 3)
             {
                 story.Add("Somehow you have made it through and you can take your breath again. Your memory is slowly coming back and you now remember that went to retrieve a magical item for Count. There were one other man that eventually hit you in the head and left you to die. So Count sent you here and hoped that you would die. Your thoughts are on revenge. You find another note. You can take a look.");
                 story.Add("You can almost see an exit from the dungeon but you have to face one last wave of enemies.");
             }
-            if (Game.player.Level == 4)
+            else if (Game.player.Level == 4)
             {
                 story.Add("Finally! You have made it. Congratulations! Now you just need to take your revenge on Count.");
                 story.Add("To be continued...");

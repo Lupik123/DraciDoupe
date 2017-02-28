@@ -58,7 +58,7 @@ namespace draciDoupe
 
         public void Attack(Player p)
         {
-            p.HP = p.HP - (_damage - (p.Defence / 10));
+            p.HP = p.HP - (_damage - (p.Defence / 10) * 3);
         }
 
         public bool CheckHP()

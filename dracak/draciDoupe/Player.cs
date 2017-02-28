@@ -8,7 +8,7 @@ namespace draciDoupe
 {
     public class Player : IPlayer, IAttack, IDefence, ICharacter
     {
-        public Player(string name, int maxHP, int level, int xp, int defence, int damage, int upgradePoints)
+        public Player(string name, int maxHP, int level, int xp, int defence, int damage, int upgradePoints, int tolars)
         {
             _name = name;
             _hp = maxHP;
@@ -18,6 +18,7 @@ namespace draciDoupe
             _damage = damage;
             _maxHP = maxHP;
             _upgradePoints = upgradePoints;
+            _tolars = tolars;
         }
         private int _damage;
         public int Damage
@@ -68,6 +69,12 @@ namespace draciDoupe
             get { return _upgradePoints; }
             set { _upgradePoints = value; }
         }
+        private int _tolars;
+        public int Tolars
+        {
+            get { return _tolars; }
+            set { _tolars = value; }
+        }
 
         public void Attack(Player p)
         {
@@ -76,7 +83,7 @@ namespace draciDoupe
 
         public void Attack(Creature c)
         {
-            c.HP = c.HP - (_damage - (c.Defence / 10));
+            c.HP = c.HP - (_damage - (c.Defence / 10) * 3);
         }
 
         public bool CheckHP()
@@ -112,7 +119,15 @@ namespace draciDoupe
         public void HeavyAttack(Creature c)
         {
             Random rnd = new Random();
-            c.HP = c.HP - ((_damage + rnd.Next(10, 21)) - (c.Defence / 10));
+            int i;
+            i = rnd.Next(1, 100);
+            if (i <= 80) {
+                c.HP = c.HP - ((_damage + _damage / 2));
+            }
+            else
+            {
+                
+            }
         }
     }
 }

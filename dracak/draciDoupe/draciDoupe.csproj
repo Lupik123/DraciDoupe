@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Armor.cs" />
     <Compile Include="Battle.xaml.cs">
       <DependentUpon>Battle.xaml</DependentUpon>
     </Compile>
@@ -66,6 +67,7 @@
     </Compile>
     <Compile Include="ICharacter.cs" />
     <Compile Include="IDefence.cs" />
+    <Compile Include="Weapons.cs" />
     <Page Include="Battle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -84,6 +86,7 @@
     </Compile>
     <Compile Include="Creature.cs" />
     <Compile Include="IAttack.cs" />
+    <Compile Include="Inventory.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

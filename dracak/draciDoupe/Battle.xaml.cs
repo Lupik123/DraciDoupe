@@ -47,9 +47,9 @@ namespace draciDoupe
 
         private async void attackHeavy_Click(object sender, RoutedEventArgs e)
         {
-
+            int c = Game.creature1.HP;
             t++;
-            if (t % 3 == 0)
+            if (t % 2 == 0)
             {
                 attackHeavy.IsEnabled = true;
             }
@@ -59,27 +59,26 @@ namespace draciDoupe
             }
             Game.player.HeavyAttack(Game.creature1);
             
-
+            
             if (Game.creature1.CheckHP() == false)
             {
                 Game.creature1.Attack(Game.player);
             }
-            await Task.Delay(1000);
+            if (Game.creature1.HP == c)
+            {
+                resultBattle.Text = "You missed!";
+            }
+
+            await Task.Delay(600);
             playerHP.Text = "HP: " + Game.player.HP;
             creatureHP.Text = "HP: " + Game.creature1.HP;
-
-                
-           
-
-            
-
         }
 
         //attack
         private async void attack_Click(object sender, RoutedEventArgs e) //pri kliknuti na button se spusti funkce
         {
             t++;
-            if (t % 3 == 0)
+            if (t % 2 == 0)
             {
                 attackHeavy.IsEnabled = true;
             }
@@ -93,7 +92,7 @@ namespace draciDoupe
             if (Game.player.CheckHP() == true) //jestli ma hrac mensi zivot nez 0
             {
                 resultBattle.Text = "You lost the battle, the game will be restarted.";
-                await Task.Delay(1000);
+                await Task.Delay(700);
                 MainWindow win = new MainWindow();
                 win.Show();
             }
@@ -105,10 +104,10 @@ namespace draciDoupe
                 Game.player.RegenerateHP();
                 playerHP.Text = "HP: " + Game.player.HP;
                 playerXP.Text = "XP: " + Game.player.XP;
-                await Task.Delay(1000);
+                await Task.Delay(800);
                 resultBattle.Text = "";
                 creatureHP.Text = "HP: " + Game.creature1.HP;
-                await Task.Delay(1000);
+                await Task.Delay(800);
 
                 if (Game.player.LevelUp() == true)
                 {

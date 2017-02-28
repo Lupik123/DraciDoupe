@@ -21,25 +21,29 @@ namespace draciDoupe
     public partial class Note : Page
     {
         List<string> notes = new List<string>();
-
+        int i;
+        Random rnd = new Random();
         public Note()
         {
             InitializeComponent();
 
-            /*notes.Add("NO WAY OUT");
-            notes.Add("DEATH TRAP");
-            notes.Add("THEY ARE EVERYWHERE");*/
+            notes.Add("YOU FOUND A WEAPON NEXT TO A DEAD BODY");
+            notes.Add("YOU FOND A PIECE OF ARMOR ON SKELETON");
+            notes.Add("YOU FOUND 50 TOLARS");
             if (Game.player.Level == 1)
             {
-                textBlock.Text = "NO WAY OUT  '";
+                textBlock.Text = "BE AWARE OF YOUR SOURROUNDINGS, YOU MAY FIND SOMETHING USEFUL";
             }
-            if (Game.player.Level == 2)
+            else if (Game.player.Level == 2)
             {
-                textBlock.Text = ",  HUNGER IS REAL,";
+                i = rnd.Next(notes.Count());
+                textBlock.Text = notes[i];
+                //if (i == 2) Game.player.Tolars += 50;
             }
-            if (Game.player.Level == 3)
+            else if (Game.player.Level == 3)
             {
-                textBlock.Text = "THEY, ARE 'EVERYWHERE_";
+                i = rnd.Next(notes.Count());
+                textBlock.Text = notes[i];
             }
         }
 

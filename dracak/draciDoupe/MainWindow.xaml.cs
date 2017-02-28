@@ -30,7 +30,7 @@ namespace draciDoupe
         private void buttonName_Click(object sender, RoutedEventArgs e)
         {
             string name = insertName.Text;
-            Game.player = new Player(insertName.Text, 150, 1, 0, 30, 50, 1);
+            Game.player = new Player(insertName.Text, 150, 1, 0, 30, 50, 1, 10);
             App.Current.MainWindow.Content = new Game();
             
         }
