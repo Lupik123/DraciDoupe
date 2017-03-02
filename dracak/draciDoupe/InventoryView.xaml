@@ -1,0 +1,36 @@
+﻿<Page x:Class="draciDoupe.InventoryView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:draciDoupe"
+      mc:Ignorable="d" 
+       d:DesignHeight="600" d:DesignWidth="1000"
+      Title="DraciDoupe"
+      FontFamily="pack://application:,,,/fonts/#Griffy"
+      FontSize="36">
+    <Page.Background>
+        <ImageBrush ImageSource="Images/cave2.jpg" />
+    </Page.Background>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListBox HorizontalAlignment="Left" MinHeight="500" Margin="50,50,0,0" VerticalAlignment="Top" MinWidth="650" HorizontalContentAlignment="Stretch" Background="{x:Null}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}" />
+                        <TextBlock Text="{Binding Attack}" />
+                        <TextBlock Text="{Binding Defence}" />
+                        <Button Content="Equip"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <Button x:Name="button"  Content="Back" Margin="0,35,0,0" VerticalAlignment="Top" Width="150" Height="60" Click="back_Click" Grid.Column="1" HorizontalAlignment="Center"/>
+    </Grid>
+</Page>
