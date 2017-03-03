@@ -102,6 +102,22 @@ namespace draciDoupe
                 Game.player.XP++;
                 Game.player.LevelUp();
                 Game.player.RegenerateHP();
+                await Task.Delay(800);
+                int fo = rnd.Next(100);
+                if (fo >= 70)
+                {
+                    string bs = Game.item.LootItem();
+
+                    if (!Game.inv.inventory.Contains(bs))
+                    {
+                        Game.inv.AddToInventory(bs);
+                        resultBattle.Text = "You found a " + bs;
+                    }
+                    else
+                    {
+                        resultBattle.Text = "You found a " + bs + " but you already have it";
+                    }
+                }
                 playerHP.Text = "HP: " + Game.player.HP;
                 playerXP.Text = "XP: " + Game.player.XP;
                 await Task.Delay(800);

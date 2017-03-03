@@ -120,8 +120,8 @@ namespace draciDoupe
         {
             Random rnd = new Random();
             int i;
-            i = rnd.Next(1, 100);
-            if (i <= 80) {
+            i = rnd.Next(100);
+            if (i >= 30) {
                 c.HP = c.HP - ((_damage + _damage / 2));
             }
             else

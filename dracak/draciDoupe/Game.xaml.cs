@@ -22,6 +22,8 @@ namespace draciDoupe
     {
         public static Player player;
         public static Creature creature1 = new Creature();
+        public static Inventory inv = new Inventory();
+        public static Items item = new Items();
         int i;
 
         List<string> story = new List<string>();

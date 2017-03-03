@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace draciDoupe
 {
-    class Inventory
+    public class Inventory
     {
-        List<string> inventory = new List<string>();
+        public string Title { get; set; }
+        public int Attack { get; set; }
+        public int Defence { get; set; }
+
+        public string item;
+
+        public List<string> inventory = new List<string>();
 
         public void AddToInventory(string item)
         {

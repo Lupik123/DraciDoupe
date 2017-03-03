@@ -23,11 +23,23 @@ namespace draciDoupe
         public InventoryView()
         {
             InitializeComponent();
+            string fml;
+            List<Inventory> items = new List<Inventory>();
+
+            foreach (string ffs in Game.inv.inventory)
+            {
+                fml = ffs;
+                items.Add(new Inventory() { Title = Game.inv.item, Attack = Game.item.GetItemDamage(fml), Defence = Game.item.GetItemDefense(fml) });
+            }
+            lbInventory.ItemsSource = items;
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
             App.Current.MainWindow.Content = new Game();
         }
+
+        
+           
     }
 }

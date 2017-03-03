@@ -18,15 +18,32 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="0.3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox HorizontalAlignment="Left" MinHeight="500" Margin="50,50,0,0" VerticalAlignment="Top" MinWidth="650" HorizontalContentAlignment="Stretch" Background="{x:Null}">
+        <ListBox x:Name="lbInventory" HorizontalAlignment="Left" Height="500" Margin="50,50,0,0" VerticalAlignment="Top" MinWidth="650" HorizontalContentAlignment="Stretch" Background="#FF0F0F0F" BorderBrush="{x:Null}" Foreground="White">
+            <ListBoxItem BorderBrush="{x:Null}" Background="#E5C0C0C0">
+                <!--<StackPanel Orientation="Horizontal" Background="#E5C0C0C0">-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Weapon type"  Foreground="Black" />
+                    <TextBlock Text="Attack"  Foreground="Black" Grid.Column="1" />
+                    <TextBlock Text="Defence"  Foreground="Black" Grid.Column="2" />
+                </Grid>
+            </ListBoxItem>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Title}" />
-                        <TextBlock Text="{Binding Attack}" />
-                        <TextBlock Text="{Binding Defence}" />
-                        <Button Content="Equip"/>
-                    </StackPanel>
+                        <TextBlock Text="{Binding Attack}" Grid.Column="1"/>
+                        <TextBlock Text="{Binding Defence}" Grid.Column="2"/>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

@@ -31,6 +31,19 @@ namespace draciDoupe
             damage.Text = "Damage: " + Game.player.Damage;
             defence.Text = "Defence: " + Game.player.Defence;
             upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+
+            if (Game.player.UpgradePoints == 0)
+            {
+                button1.Visibility = Visibility.Hidden;
+                button2.Visibility = Visibility.Hidden;
+                button3.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                button1.Visibility = Visibility.Visible;
+                button2.Visibility = Visibility.Visible;
+                button3.Visibility = Visibility.Visible;
+            }
         }
         private void back_Click(object sender, RoutedEventArgs e)
         {
