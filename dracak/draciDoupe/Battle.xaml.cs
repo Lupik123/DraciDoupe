@@ -67,6 +67,9 @@ namespace draciDoupe
             if (Game.creature1.HP == c)
             {
                 resultBattle.Text = "You missed!";
+                Game.creature1.Attack(Game.player);
+                await Task.Delay(1000);
+                resultBattle.Text = "";
             }
 
             await Task.Delay(600);

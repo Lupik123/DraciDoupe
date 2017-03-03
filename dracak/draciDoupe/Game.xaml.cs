@@ -69,12 +69,12 @@ namespace draciDoupe
 
         private void inventory_Click(object sender, RoutedEventArgs e)
         {
-
+            App.Current.MainWindow.Content = new InventoryView();
         }
         public void continue_Click(object sender, RoutedEventArgs e)
         {
             i++;
-            textBlock.Text = story[i];
+            textBlock.Text = story[1];
             takeNote.Visibility = Visibility.Hidden;
             if (i % 2 == 0)
             {

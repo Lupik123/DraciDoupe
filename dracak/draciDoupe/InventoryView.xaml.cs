@@ -29,9 +29,12 @@ namespace draciDoupe
             foreach (string ffs in Game.inv.inventory)
             {
                 fml = ffs;
-                items.Add(new Inventory() { Title = Game.inv.item, Attack = Game.item.GetItemDamage(fml), Defence = Game.item.GetItemDefense(fml) });
+                items.Add(new Inventory() { Title = fml, Attack = Game.item.GetItemDamage(fml), Defence = Game.item.GetItemDefense(fml) });
             }
             lbInventory.ItemsSource = items;
+
+
+
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -39,7 +42,22 @@ namespace draciDoupe
             App.Current.MainWindow.Content = new Game();
         }
 
-        
-           
+        private void equip_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void lbInventory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (lbInventory.SelectedItem != null)
+                this.Title = (lbInventory.SelectedItem as Inventory).Title;
+            foreach (object o in lbInventory.SelectedItems)
+            {
+                //MessageBox.Show((o as Inventory).Title);
+                ItemPopup.IsOpen = true;
+
+            }
+        }
+
     }
 }
