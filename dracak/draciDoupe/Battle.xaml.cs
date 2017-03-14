@@ -43,6 +43,8 @@ namespace draciDoupe
             creatureHP.Text = "HP: " + Game.creature1.HP;
             creatureDefence.Text = "Defence: " + Game.creature1.Defence;
             creatureImage.Source = new BitmapImage(new Uri($"{Game.creature1.GetImage(Game.creature1.Name)}", UriKind.Relative));
+
+
         }
 
         private async void attackHeavy_Click(object sender, RoutedEventArgs e)
@@ -68,7 +70,7 @@ namespace draciDoupe
             {
                 resultBattle.Text = "You missed!";
                 Game.creature1.Attack(Game.player);
-                await Task.Delay(1000);
+                await Task.Delay(2000);
                 resultBattle.Text = "";
             }
 
@@ -94,10 +96,11 @@ namespace draciDoupe
                               
             if (Game.player.CheckHP() == true) //jestli ma hrac mensi zivot nez 0
             {
-                resultBattle.Text = "You lost the battle, the game will be restarted.";
-                await Task.Delay(700);
-                MainWindow win = new MainWindow();
-                win.Show();
+                resultBattle.Text = "You lost the battle, the game will end.";
+                await Task.Delay(10000);
+                //MainWindow win = new MainWindow();
+                //win.Show();
+                Application.Current.Shutdown();
             }
             else if(Game.creature1.CheckHP() == true) // jestli zemre nepritel driv
             {
@@ -107,7 +110,7 @@ namespace draciDoupe
                 Game.player.RegenerateHP();
                 await Task.Delay(800);
                 int fo = rnd.Next(100);
-                if (fo >= 70)
+                if (fo >= 1)
                 {
                     string bs = Game.item.LootItem();
 
@@ -115,10 +118,12 @@ namespace draciDoupe
                     {
                         Game.inv.AddToInventory(bs);
                         resultBattle.Text = "You found a " + bs;
+                        await Task.Delay(1000);
                     }
                     else
                     {
                         resultBattle.Text = "You found a " + bs + " but you already have it";
+                        await Task.Delay(1000);
                     }
                 }
                 playerHP.Text = "HP: " + Game.player.HP;

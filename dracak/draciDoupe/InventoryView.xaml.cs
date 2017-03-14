@@ -55,9 +55,16 @@ namespace draciDoupe
             {
                 //MessageBox.Show((o as Inventory).Title);
                 ItemPopup.IsOpen = true;
-
+                type.Text = "Type: " + (o as Inventory).Title;
+                attack.Text = "Attack: " + (o as Inventory).Attack;
+                defence.Text = "Defence: " + (o as Inventory).Defence;
+                //itemImage.Source = ;
             }
         }
 
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            ItemPopup.IsOpen = false;
+        }
     }
 }

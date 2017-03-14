@@ -53,11 +53,13 @@
                     <ColumnDefinition Width="0.7*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="itemImage"></Image>
+                <Image x:Name="itemImage" Height="300" Width="305"></Image>
                 <TextBlock x:Name="type" Grid.Column="1" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Top" Text="Type" Margin="0,25,0,0"></TextBlock>
                 <TextBlock x:Name="attack" Grid.Column="1" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Top" Text="Attack" Margin="0,90,0,0"></TextBlock>
                 <TextBlock x:Name="defence" Grid.Column="1" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Top" Text="Defence" Margin="0,155,0,0"></TextBlock>
                 <Button x:Name="equip" Content="Equip" Grid.Column="1" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Width="100" Height="50" Click="equip_Click"/>
+                <Button x:Name="exit"  Content="X" Margin="0,10,10,0" VerticalAlignment="Top" Width="30" Height="30" Click="exit_Click" Grid.Column="1" HorizontalAlignment="Right" FontFamily="Arial" FontSize="24"/>
+                
             </Grid>
         </Popup>
     </Grid>
