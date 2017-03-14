@@ -31,6 +31,7 @@ namespace draciDoupe
             damage.Text = "Damage: " + Game.player.Damage;
             defence.Text = "Defence: " + Game.player.Defence;
             upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+            tolars.Text = "Tolars: " + Game.player.Tolars;
 
             if (Game.player.UpgradePoints == 0)
             {

@@ -58,7 +58,7 @@ namespace draciDoupe
                 type.Text = "Type: " + (o as Inventory).Title;
                 attack.Text = "Attack: " + (o as Inventory).Attack;
                 defence.Text = "Defence: " + (o as Inventory).Defence;
-                //itemImage.Source = ;
+                itemImage.Source = new BitmapImage(new Uri($"{Game.item.GetItemImage((o as Inventory).Title)}", UriKind.Relative));
             }
         }
 

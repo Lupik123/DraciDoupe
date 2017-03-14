@@ -18,13 +18,14 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Button x:Name="button"  Content="Back" HorizontalAlignment="Right" Margin="0,35,55,0" VerticalAlignment="Top" Width="150" Height="60" Click="back_Click" Grid.Column="1"/>
-        <TextBlock x:Name="name" Foreground="White" HorizontalAlignment="Left" Margin="50,50,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
-        <TextBlock x:Name="maxHP" Foreground="White" HorizontalAlignment="Left" Margin="50,120,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
-        <TextBlock x:Name="damage" Foreground="White" HorizontalAlignment="Left" Margin="50,190,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
-        <TextBlock x:Name="defence" Foreground="White" HorizontalAlignment="Left" Margin="50,260,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
-        <TextBlock x:Name="level" Foreground="White" HorizontalAlignment="Left" Margin="50,330,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
-        <TextBlock x:Name="xp" Foreground="White" HorizontalAlignment="Left" Margin="50,400,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
-        <TextBlock x:Name="upgradePoints" Foreground="White" HorizontalAlignment="Left" Margin="50,470,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="name" Foreground="White" HorizontalAlignment="Left" Margin="50,30,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="maxHP" Foreground="White" HorizontalAlignment="Left" Margin="50,100,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="damage" Foreground="White" HorizontalAlignment="Left" Margin="50,170,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="defence" Foreground="White" HorizontalAlignment="Left" Margin="50,240,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="level" Foreground="White" HorizontalAlignment="Left" Margin="50,310,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="xp" Foreground="White" HorizontalAlignment="Left" Margin="50,380,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="upgradePoints" Foreground="White" HorizontalAlignment="Left" Margin="50,450,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
+        <TextBlock x:Name="tolars" Foreground="White" HorizontalAlignment="Left" Margin="50,520,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="320" Height="49"/>
 
         <Button x:Name="button1" Content="+" HorizontalAlignment="Right" Margin="0,120,25,0" VerticalAlignment="Top" Width="50" Height="50" Click="button1_Click" Visibility="Hidden"/>
         <Button x:Name="button2" Content="+" HorizontalAlignment="Right" Margin="0,190,25,0" VerticalAlignment="Top" Width="50" Height="50" Click="button2_Click" Visibility="Hidden"/>

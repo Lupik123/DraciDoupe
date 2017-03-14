@@ -46,15 +46,15 @@ namespace draciDoupe
             itemDefense.Add("Gauntlets", 5);
             itemDefense.Add("Shield", 30);
 
-            itemImage.Add("Sword", "Images/sword");
-            itemImage.Add("Longsword", "Images/longsword");
-            itemImage.Add("Daggers", "Images/daggers");
-            itemImage.Add("Battle Axe", "Images/");
-            itemImage.Add("Bow", "Images/");
-            itemImage.Add("Helmet", "Images/");
-            itemImage.Add("Chestguard", "Images/");
-            itemImage.Add("Gauntlets", "Images/");
-            itemImage.Add("Shield", "Images/");
+            itemImage.Add("Sword", "Images/sword.jpg");
+            itemImage.Add("Longsword", "Images/longsword.jpg");
+            itemImage.Add("Daggers", "Images/daggers.jpg");
+            itemImage.Add("Battle Axe", "Images/battleaxe.jpg");
+            itemImage.Add("Bow", "Images/bow.jpg");
+            itemImage.Add("Helmet", "Images/helmet.jpg");
+            itemImage.Add("Chestguard", "Images/chestguard.jpg");
+            itemImage.Add("Gauntlets", "Images/gauntlets.jpg");
+            itemImage.Add("Shield", "Images/shield.jpg");
         }
 
         public string LootItem()
@@ -72,6 +72,9 @@ namespace draciDoupe
             return itemDefense[item];
         }
 
-
+        public string GetItemImage(string item)
+        {
+            return itemImage[item];
+        }
     }
 }

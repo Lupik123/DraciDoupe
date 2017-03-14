@@ -166,6 +166,33 @@
   <ItemGroup>
     <Resource Include="Images\merchant.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\daggers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\helmet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gauntlets.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chestguard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\longsword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sword.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shield.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\battleaxe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bow.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
