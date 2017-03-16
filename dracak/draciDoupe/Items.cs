@@ -12,6 +12,7 @@ namespace draciDoupe
         List<string> itemType = new List<string>();
         Dictionary<string, int> itemDamage = new Dictionary<string, int>();
         Dictionary<string, int> itemDefense = new Dictionary<string, int>();
+        Dictionary<string, int> itemPlace = new Dictionary<string, int>();
         Dictionary<string, string> itemImage = new Dictionary<string, string>();
 
         public Items()
@@ -55,6 +56,18 @@ namespace draciDoupe
             itemImage.Add("Chestguard", "Images/chestguard.jpg");
             itemImage.Add("Gauntlets", "Images/gauntlets.jpg");
             itemImage.Add("Shield", "Images/shield.jpg");
+
+            itemPlace.Add("Sword", 1);
+            itemPlace.Add("Longsword", 1);
+            itemPlace.Add("Daggers", 2);
+            itemPlace.Add("Battle Axe", 1);
+            itemPlace.Add("Bow", 1);
+            itemPlace.Add("Helmet", 3);
+            itemPlace.Add("Chestguard", 4);
+            itemPlace.Add("Gauntlets", 2);
+            itemPlace.Add("Shield", 1);
+
+            //Hand = 1, Hands = 2, Head = 3, Body = 4
         }
 
         public string LootItem()
@@ -75,6 +88,11 @@ namespace draciDoupe
         public string GetItemImage(string item)
         {
             return itemImage[item];
+        }
+
+        public int GetItemPlace(string item)
+        {
+            return itemPlace[item];
         }
     }
 }

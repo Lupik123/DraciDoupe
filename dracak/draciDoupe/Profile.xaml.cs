@@ -53,15 +53,16 @@ namespace draciDoupe
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            Game.player.MaxHP += 10;
+            maxHP.Text = "HP: " + Game.player.MaxHP;
+            Game.player.UpgradePoints -= 1;
+            upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+
             if (Game.player.UpgradePoints != 0)
             {
                 button1.Visibility = Visibility.Visible;
                 button2.Visibility = Visibility.Visible;
-                button3.Visibility = Visibility.Visible;
-                Game.player.MaxHP += 10;
-                maxHP.Text = "HP: " + Game.player.MaxHP;
-                Game.player.UpgradePoints -= 1;
-                upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+                button3.Visibility = Visibility.Visible;                
             }
 
             else
@@ -74,15 +75,16 @@ namespace draciDoupe
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            Game.player.Damage += 10;
+            damage.Text = "Damage: " + Game.player.Damage;
+            Game.player.UpgradePoints -= 1;
+            upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+
             if (Game.player.UpgradePoints != 0)
             {
                 button1.Visibility = Visibility.Visible;
                 button2.Visibility = Visibility.Visible;
-                button3.Visibility = Visibility.Visible;
-                Game.player.Damage += 10;
-                damage.Text = "Damage: " + Game.player.Damage;
-                Game.player.UpgradePoints -= 1;
-                upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+                button3.Visibility = Visibility.Visible;                
             }
             else
             {

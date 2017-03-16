@@ -20,6 +20,10 @@ namespace draciDoupe
     /// </summary>
     public partial class InventoryView : Page
     {
+        public string title;
+        public int damage;
+        public int defense;
+
         public InventoryView()
         {
             InitializeComponent();
@@ -33,8 +37,6 @@ namespace draciDoupe
             }
             lbInventory.ItemsSource = items;
 
-
-
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -44,7 +46,14 @@ namespace draciDoupe
 
         private void equip_Click(object sender, RoutedEventArgs e)
         {
-            Game.equipment.AddToEquipment(type.Text);
+            if (!Game.equipment.equipped.Contains(title))
+            {
+                Game.equipment.AddToEquipment(title);
+                Game.player.Damage += damage;
+                Game.player.Defence += defense;
+                equip.Content = title;
+            }
+            
         }
 
         private void lbInventory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -60,13 +69,19 @@ namespace draciDoupe
                 defence.Text = "Defence: " + (o as Inventory).Defence;
                 itemImage.Source = new BitmapImage(new Uri($"{Game.item.GetItemImage((o as Inventory).Title)}", UriKind.Relative));
 
+                title = (o as Inventory).Title;
+                damage = (o as Inventory).Attack;
+                defense = (o as Inventory).Defence;
+
                 if (Game.equipment.equipped.Contains(type.Text))
                 {
-                    equip.Visibility = Visibility.Collapsed;
+                    equip.IsEnabled = false;
+                    equip.Content = "Equipped";
                 }
                 else
                 {
-                    equip.Visibility = Visibility.Visible;
+                    equip.IsEnabled = true;
+                    equip.Content = "Equip";
                 }
             }
         }
