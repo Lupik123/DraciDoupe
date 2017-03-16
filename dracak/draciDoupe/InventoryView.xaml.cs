@@ -44,7 +44,7 @@ namespace draciDoupe
 
         private void equip_Click(object sender, RoutedEventArgs e)
         {
-
+            Game.equipment.AddToEquipment(type.Text);
         }
 
         private void lbInventory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -59,6 +59,15 @@ namespace draciDoupe
                 attack.Text = "Attack: " + (o as Inventory).Attack;
                 defence.Text = "Defence: " + (o as Inventory).Defence;
                 itemImage.Source = new BitmapImage(new Uri($"{Game.item.GetItemImage((o as Inventory).Title)}", UriKind.Relative));
+
+                if (Game.equipment.equipped.Contains(type.Text))
+                {
+                    equip.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    equip.Visibility = Visibility.Visible;
+                }
             }
         }
 

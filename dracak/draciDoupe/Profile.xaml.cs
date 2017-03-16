@@ -94,15 +94,16 @@ namespace draciDoupe
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
+            Game.player.Defence += 10;
+            defence.Text = "Defence: " + Game.player.Defence;
+            Game.player.UpgradePoints -= 1;
+            upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
+
             if (Game.player.UpgradePoints != 0)
             {
                 button1.Visibility = Visibility.Visible;
                 button2.Visibility = Visibility.Visible;
                 button3.Visibility = Visibility.Visible;
-                Game.player.Defence += 10;
-                defence.Text = "Defence: " + Game.player.Defence;
-                Game.player.UpgradePoints -= 1;
-                upgradePoints.Text = "Upgrade Points: " + Game.player.UpgradePoints;
             }
             else
             {

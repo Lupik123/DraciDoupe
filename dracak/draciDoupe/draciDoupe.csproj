@@ -61,6 +61,7 @@
       <DependentUpon>Battle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Creatures.cs" />
+    <Compile Include="Equipped.cs" />
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
