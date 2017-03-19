@@ -31,7 +31,7 @@ namespace draciDoupe
             itemDamage.Add("Longsword", 10);
             itemDamage.Add("Daggers", 20);
             itemDamage.Add("Battle Axe", 10);
-            itemDamage.Add("Bow", 20);
+            itemDamage.Add("Bow", 0);
             itemDamage.Add("Helmet", 0);
             itemDamage.Add("Chestguard", 0);
             itemDamage.Add("Gauntlets", 0);
@@ -60,14 +60,14 @@ namespace draciDoupe
             itemPlace.Add("Sword", 1);
             itemPlace.Add("Longsword", 1);
             itemPlace.Add("Daggers", 2);
-            itemPlace.Add("Battle Axe", 1);
-            itemPlace.Add("Bow", 1);
+            itemPlace.Add("Battle Axe", 2);
+            itemPlace.Add("Bow", 3);
             itemPlace.Add("Helmet", 3);
-            itemPlace.Add("Chestguard", 4);
-            itemPlace.Add("Gauntlets", 2);
+            itemPlace.Add("Chestguard", 3);
+            itemPlace.Add("Gauntlets", 3);
             itemPlace.Add("Shield", 1);
 
-            //Hand = 1, Hands = 2, Head = 3, Body = 4
+            //Hand = 1, Hands = 2, Rest = 3
         }
 
         public string LootItem()
@@ -93,6 +93,6 @@ namespace draciDoupe
         public int GetItemPlace(string item)
         {
             return itemPlace[item];
-        }
+        }    
     }
 }

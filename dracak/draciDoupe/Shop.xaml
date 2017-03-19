@@ -1,4 +1,4 @@
-﻿<Page x:Class="draciDoupe.Note"
+﻿<Page x:Class="draciDoupe.Shop"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,15 +6,13 @@
       xmlns:local="clr-namespace:draciDoupe"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="Note"
+      Title="DraciDoupe"
       FontFamily="pack://application:,,,/fonts/#Griffy"
       FontSize="36">
     <Page.Background>
         <ImageBrush ImageSource="Images/cave2.jpg" />
     </Page.Background>
     <Grid>
-        <Image Source="Images/paper2.png" />
-        <Button x:Name="button" Cursor="Hand" Content="Back" HorizontalAlignment="Right" Margin="0,35,55,0" VerticalAlignment="Top" Width="150" Height="60" Click="back_Click"/>
-        <TextBlock x:Name="textBlock" Foreground="#8A0707" FontFamily="pack://application:,,,/fonts/#DEATHNOTE Font" FontSize="70" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="330" Height="500"/>
+        
     </Grid>
 </Page>

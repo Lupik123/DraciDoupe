@@ -48,12 +48,55 @@ namespace draciDoupe
         {
             if (!Game.equipment.equipped.Contains(title))
             {
-                Game.equipment.AddToEquipment(title);
-                Game.player.Damage += damage;
-                Game.player.Defence += defense;
-                equip.Content = title;
-            }
+                bool tf = false;
+                int num = Game.item.GetItemPlace(title);
+
+                if (num == 1)
+                {
+                    if ((Game.equipment.hand.Count == 0 || Game.equipment.hand.Count == 1) && Game.equipment.hands.Count == 0)
+                    {
+                        tf = true;
+                    }
+                }
+
+                else if (num == 2)
+                {
+                    if (Game.equipment.hand.Count == 0 && Game.equipment.hands.Count == 0)
+                    {
+                        tf = true;
+                    }
+                }
+
+                else if (num == 3)
+                {
+                    tf = true;
+                }
+                if (tf == true)
+                {
+                    Game.equipment.AddToEquipment(title);
+                    Game.player.Damage += damage;
+                    Game.player.Defence += defense;
+                    //equip.Content = title;
+                    //equip.IsEnabled = false;
+                    equip.Content = "Unequip";
+                    equip.Click += unequip_Click;
+                }
+            }   
             
+        }
+
+        private void unequip_Click(object sender, RoutedEventArgs e)
+        {
+            if (Game.equipment.equipped.Contains(title))
+            {
+                Game.equipment.RemoveFromEquipment(title);
+                Game.player.Damage -= damage;
+                Game.player.Defence -= defense;
+                //equip.Content = title;
+                //equip.IsEnabled = false;
+                equip.Content = "Equip";
+                equip.Click += equip_Click;
+            }
         }
 
         private void lbInventory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -73,15 +116,15 @@ namespace draciDoupe
                 damage = (o as Inventory).Attack;
                 defense = (o as Inventory).Defence;
 
-                if (Game.equipment.equipped.Contains(type.Text))
+                if (Game.equipment.equipped.Contains((o as Inventory).Title))
                 {
-                    equip.IsEnabled = false;
-                    equip.Content = "Equipped";
+                    equip.Content = "Unequip";
+                    equip.Click += unequip_Click;
                 }
                 else
                 {
-                    equip.IsEnabled = true;
                     equip.Content = "Equip";
+                    equip.Click += equip_Click;
                 }
             }
         }

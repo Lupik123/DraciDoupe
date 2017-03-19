@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Arena.xaml.cs">
+      <DependentUpon>Arena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Battle.xaml.cs">
       <DependentUpon>Battle.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,13 @@
       <DependentUpon>InventoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Items.cs" />
+    <Compile Include="Shop.xaml.cs">
+      <DependentUpon>Shop.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Arena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Battle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Shop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Note.xaml.cs">
@@ -133,11 +147,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="fonts\better_get_ready.ttf" />
-    <Resource Include="fonts\chapbook.otf" />
-    <Resource Include="fonts\chapbook_italic.otf" />
     <Resource Include="fonts\griffy.ttf" />
-    <Resource Include="fonts\lunchds.ttf" />
     <Resource Include="fonts\DEATHNOTEFont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,9 +159,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cave1.jpg" />
     <Resource Include="Images\cave2.jpg" />
-    <Resource Include="Images\cave3.jpg" />
     <Resource Include="Images\cave_exit.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\paper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

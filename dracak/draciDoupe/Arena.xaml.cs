@@ -16,16 +16,15 @@ using System.Windows.Shapes;
 namespace draciDoupe
 {
     /// <summary>
-    /// Interakční logika pro Battle.xaml
+    /// Interaction logic for Arena.xaml
     /// </summary>
-    public partial class Battle : Page
+    public partial class Arena : Page
     {
-        
         Random rnd = new Random();
         public int t = 0;
         public int i = 0;
 
-        public Battle()
+        public Arena()
         {
             InitializeComponent();
 
@@ -56,7 +55,6 @@ namespace draciDoupe
             }
         }
 
-
         //Heavy attack
         private async void attackHeavy_Click(object sender, RoutedEventArgs e)
         {
@@ -64,7 +62,7 @@ namespace draciDoupe
             int c = Game.creature1.HP;
 
             //Defines that you have to wait 1 round to use it again
-            if (t != 2) t++;
+            t++;
             if (t % 2 == 0)
             {
                 attackHeavy.IsEnabled = true;
@@ -74,8 +72,7 @@ namespace draciDoupe
                 attackHeavy.IsEnabled = false;
             }
 
-            i++;
-            if (i % 4 == 0)
+            if (t % 4 == 0)
             {
                 bowAttack.IsEnabled = true;
             }
@@ -85,7 +82,7 @@ namespace draciDoupe
             }
 
             Game.player.HeavyAttack(Game.creature1);
-            
+
             //Checks if creature is dead, if not it attacks player
             if (Game.creature1.CheckHP() == false)
             {
@@ -126,8 +123,7 @@ namespace draciDoupe
                 attackHeavy.IsEnabled = false;
             }
 
-            i++;
-            if (i % 4 == 0)
+            if (t % 4 == 0)
             {
                 bowAttack.IsEnabled = true;
             }
@@ -139,8 +135,8 @@ namespace draciDoupe
 
 
             attack.IsEnabled = false; //disabling button
-            //Game.player.RegenerateHP(); //regenerates player HP
-            
+                                      //Game.player.RegenerateHP(); //regenerates player HP
+
             //Checks if player is dead, if true window will shut down                  
             if (Game.player.CheckHP() == true)
             {
@@ -152,8 +148,9 @@ namespace draciDoupe
             }
 
             //Checks if creature is dead, if true you won the battle and the game continues
-            else if (Game.creature1.CheckHP() == true) 
+            else if (Game.creature1.CheckHP() == true)
             {
+                i++;
                 attack.Content = "Continue";
                 resultBattle.Text = "You won the battle.";
                 Game.player.XP++; //adds xp point
@@ -172,18 +169,18 @@ namespace draciDoupe
                     {
                         Game.inv.AddToInventory(bs);
                         resultBattle.Text = "You found a " + bs;
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                     }
 
                     //you find something but you already have it
                     else
                     {
                         resultBattle.Text = "You found a " + bs + " but you already have it";
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                     }
                 }
 
-                
+
 
                 playerHP.Text = "HP: " + Game.player.HP;
                 playerXP.Text = "XP: " + Game.player.XP;
@@ -196,26 +193,24 @@ namespace draciDoupe
                 if (Game.player.LevelUp() == true)
                 {
                     Game.player.Level++;
-                    Game.player.UpgradePoints++;
-                    resultBattle.Text = "You reached next level and recieved one upgrade point.";
-                    await Task.Delay(2000);
-                    App.Current.MainWindow.Content = new Game();
+                    Game.player.MaxHP += 10;
+                    Game.player.Damage += 10;
+                    Game.player.Defence += 10;
+                    resultBattle.Text = "You reached next level and your stats have been boosted.";
+                    await Task.Delay(1000);
                 }
 
                 //creating new creature
-                else
-                {
-                    Game.creature1 = new Creature();
-                    Game.creature1.GetCreature();
-                    creatureName.Text = Game.creature1.Name;
-                    creatureHP.Text = "HP: " + Game.creature1.HP;
-                    creatureDefence.Text = "Defence: " + Game.creature1.Defence;
-                    creatureImage.Source = new BitmapImage(new Uri($"{Game.creature1.GetImage(Game.creature1.Name)}", UriKind.Relative));
-                    attack.IsEnabled = true;
-                    attack.Content = "Attack";
-                }
+                Game.creature1 = new Creature();
+                Game.creature1.GetCreature();
+                creatureName.Text = Game.creature1.Name;
+                creatureHP.Text = "HP: " + Game.creature1.HP;
+                creatureDefence.Text = "Defence: " + Game.creature1.Defence;
+                creatureImage.Source = new BitmapImage(new Uri($"{Game.creature1.GetImage(Game.creature1.Name)}", UriKind.Relative));
+                attack.IsEnabled = true;
+                attack.Content = "Attack";
             }
-                 
+
             //battle continues
             else
             {
@@ -234,11 +229,11 @@ namespace draciDoupe
                 {
                     attack.Content = "Continue";
                 }
-            }          
+            }
         }
 
         private async void bow_Click(object sender, RoutedEventArgs e)
-        {   
+        {
             t++;
             if (t % 2 == 0)
             {
@@ -249,8 +244,7 @@ namespace draciDoupe
                 attackHeavy.IsEnabled = false;
             }
 
-            i++;
-            if (i % 4 == 0)
+            if (t % 4 == 0)
             {
                 bowAttack.IsEnabled = true;
             }
@@ -271,6 +265,11 @@ namespace draciDoupe
             {
                 attack.Content = "Continue";
             }
+        }
+
+        private void inventory_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.MainWindow.Content = new InventoryView();
         }
     }
 }

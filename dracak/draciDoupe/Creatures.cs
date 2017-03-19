@@ -26,7 +26,7 @@ namespace draciDoupe
 
             //Creature HP
             creatureHP.Add("Spider", 150);
-            creatureHP.Add("Cyclop", 200);
+            creatureHP.Add("Cyclop", 180);
             creatureHP.Add("Agressive Bat", 80);
             creatureHP.Add("Gremlin", 130);
 
