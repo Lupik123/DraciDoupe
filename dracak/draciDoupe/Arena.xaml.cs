@@ -196,8 +196,19 @@ namespace draciDoupe
                     Game.player.MaxHP += 10;
                     Game.player.Damage += 10;
                     Game.player.Defence += 10;
+                    Game.player.XP = 0;
+                    playerHP.Text = "HP: " + Game.player.HP;
+                    playerDefence.Text = "Defence: " + Game.player.Defence;
+                    playerXP.Text = "XP: " + Game.player.XP;
                     resultBattle.Text = "You reached next level and your stats have been boosted.";
                     await Task.Delay(1000);
+                }
+
+                if (Game.player.Level == 11)
+                {
+                    resultBattle.Text = "You defeated every monster and won in the arena.";
+                    await Task.Delay(2000);
+                    Application.Current.Shutdown();
                 }
 
                 //creating new creature

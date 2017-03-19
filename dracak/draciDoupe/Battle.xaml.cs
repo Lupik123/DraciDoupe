@@ -62,7 +62,7 @@ namespace draciDoupe
         {
 
             int c = Game.creature1.HP;
-
+            attack.IsEnabled = false;
             //Defines that you have to wait 1 round to use it again
             if (t != 2) t++;
             if (t % 2 == 0)
@@ -74,8 +74,7 @@ namespace draciDoupe
                 attackHeavy.IsEnabled = false;
             }
 
-            i++;
-            if (i % 4 == 0)
+            if (t % 4 == 0)
             {
                 bowAttack.IsEnabled = true;
             }
@@ -96,7 +95,6 @@ namespace draciDoupe
             if (Game.creature1.HP == c)
             {
                 resultBattle.Text = "You missed!";
-                Game.creature1.Attack(Game.player);
                 await Task.Delay(2000);
                 resultBattle.Text = "";
             }
@@ -104,7 +102,7 @@ namespace draciDoupe
             await Task.Delay(600);
             playerHP.Text = "HP: " + Game.player.HP;
             creatureHP.Text = "HP: " + Game.creature1.HP;
-
+            attack.IsEnabled = true;
             if (Game.creature1.CheckHP() == true)
             {
                 attack.Content = "Continue";
@@ -126,8 +124,7 @@ namespace draciDoupe
                 attackHeavy.IsEnabled = false;
             }
 
-            i++;
-            if (i % 4 == 0)
+            if (t % 4 == 0)
             {
                 bowAttack.IsEnabled = true;
             }
@@ -140,14 +137,12 @@ namespace draciDoupe
 
             attack.IsEnabled = false; //disabling button
             //Game.player.RegenerateHP(); //regenerates player HP
-            
+
             //Checks if player is dead, if true window will shut down                  
             if (Game.player.CheckHP() == true)
             {
                 resultBattle.Text = "You lost the battle, the game will end.";
                 await Task.Delay(10000);
-                //MainWindow win = new MainWindow();
-                //win.Show();
                 Application.Current.Shutdown();
             }
 
@@ -159,11 +154,12 @@ namespace draciDoupe
                 Game.player.XP++; //adds xp point
                 Game.player.LevelUp(); //checks player's xp points, when 3 player level up
                 Game.player.RegenerateHP(); //player's HP restored to max
+                Game.player.Tolars += 5;
                 await Task.Delay(800);
 
                 //Getting items if you win the battle
                 int fo = rnd.Next(100);
-                if (fo >= 0)
+                if (fo >= 60)
                 {
                     string bs = Game.item.LootItem();
 
@@ -172,14 +168,14 @@ namespace draciDoupe
                     {
                         Game.inv.AddToInventory(bs);
                         resultBattle.Text = "You found a " + bs;
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                     }
 
                     //you find something but you already have it
                     else
                     {
                         resultBattle.Text = "You found a " + bs + " but you already have it";
-                        await Task.Delay(3000);
+                        await Task.Delay(2000);
                     }
                 }
 
@@ -249,8 +245,7 @@ namespace draciDoupe
                 attackHeavy.IsEnabled = false;
             }
 
-            i++;
-            if (i % 4 == 0)
+            if (t % 4 == 0)
             {
                 bowAttack.IsEnabled = true;
             }
@@ -265,7 +260,6 @@ namespace draciDoupe
             await Task.Delay(1000);
             playerHP.Text = "HP: " + Game.player.HP;
             creatureHP.Text = "HP: " + Game.creature1.HP;
-            bowAttack.IsEnabled = true; //enables button
 
             if (Game.creature1.CheckHP() == true)
             {

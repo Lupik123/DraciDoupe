@@ -97,3 +97,7 @@ C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\draci
 C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\draciDoupe.csproj.GenerateResource.Cache
 C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\InventoryView.g.cs
 C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\InventoryView.baml
+C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\Arena.g.cs
+C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\Shop.g.cs
+C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\Arena.baml
+C:\Users\Jakub\Desktop\Škola\Repos\DraciDoupe\dracak\draciDoupe\obj\Debug\Shop.baml

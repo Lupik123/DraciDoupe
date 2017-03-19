@@ -20,9 +20,9 @@ namespace draciDoupe
     /// </summary>
     public partial class InventoryView : Page
     {
-        public string title;
-        public int damage;
-        public int defense;
+        string title;
+        int damage;
+        int defense;
 
         public InventoryView()
         {
@@ -41,7 +41,14 @@ namespace draciDoupe
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.MainWindow.Content = new Game();
+            if (MainWindow.mode == 1)
+            {
+                App.Current.MainWindow.Content = new Game();
+            }
+            else
+            {
+                App.Current.MainWindow.Content = new Arena();
+            }
         }
 
         private void equip_Click(object sender, RoutedEventArgs e)
@@ -76,8 +83,6 @@ namespace draciDoupe
                     Game.equipment.AddToEquipment(title);
                     Game.player.Damage += damage;
                     Game.player.Defence += defense;
-                    //equip.Content = title;
-                    //equip.IsEnabled = false;
                     equip.Content = "Unequip";
                     equip.Click += unequip_Click;
                 }
@@ -92,8 +97,6 @@ namespace draciDoupe
                 Game.equipment.RemoveFromEquipment(title);
                 Game.player.Damage -= damage;
                 Game.player.Defence -= defense;
-                //equip.Content = title;
-                //equip.IsEnabled = false;
                 equip.Content = "Equip";
                 equip.Click += equip_Click;
             }
@@ -105,7 +108,6 @@ namespace draciDoupe
                 this.Title = (lbInventory.SelectedItem as Inventory).Title;
             foreach (object o in lbInventory.SelectedItems)
             {
-                //MessageBox.Show((o as Inventory).Title);
                 ItemPopup.IsOpen = true;
                 type.Text = "Type: " + (o as Inventory).Title;
                 attack.Text = "Attack: " + (o as Inventory).Attack;

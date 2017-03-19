@@ -9,11 +9,12 @@ namespace draciDoupe
     public class Items
     {
         Random rnd = new Random();
-        List<string> itemType = new List<string>();
+        public List<string> itemType = new List<string>();
         Dictionary<string, int> itemDamage = new Dictionary<string, int>();
         Dictionary<string, int> itemDefense = new Dictionary<string, int>();
         Dictionary<string, int> itemPlace = new Dictionary<string, int>();
         Dictionary<string, string> itemImage = new Dictionary<string, string>();
+        Dictionary<string, int> itemPrice = new Dictionary<string, int>();
 
         public Items()
         {
@@ -68,6 +69,16 @@ namespace draciDoupe
             itemPlace.Add("Shield", 1);
 
             //Hand = 1, Hands = 2, Rest = 3
+
+            itemPrice.Add("Sword", 10);
+            itemPrice.Add("Longsword", 20);
+            itemPrice.Add("Daggers", 30);
+            itemPrice.Add("Battle Axe", 30);
+            itemPrice.Add("Bow", 50);
+            itemPrice.Add("Helmet", 10);
+            itemPrice.Add("Chestguard", 20);
+            itemPrice.Add("Gauntlets", 5);
+            itemPrice.Add("Shield", 30);
         }
 
         public string LootItem()
@@ -93,6 +104,11 @@ namespace draciDoupe
         public int GetItemPlace(string item)
         {
             return itemPlace[item];
-        }    
+        }
+
+        public int GetItemPrice(string item)
+        {
+            return itemPrice[item];
+        }
     }
 }
